@@ -1,9 +1,9 @@
 .button {
-  background-color: #555555;
+  background-color: #0cdb28;
   width: 90px;
   border: none;
   border-radius: 4px;
-  color: white;
+  color: #000000;
   padding: 10px;
   text-align: center;
   text-decoration: none;
@@ -12,7 +12,7 @@
 }
 
 .button:disabled {
-  background-color: #cccccc;
-  color: #666666;
+  background-color: #051d097e;
+  color: #ffffff;
   cursor: not-allowed;
 }
