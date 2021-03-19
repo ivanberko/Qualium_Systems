@@ -8,10 +8,10 @@ import Button from '../../components/Button';
 import { fetchProducts } from '../../services/apiServices';
 
 // Styles
-import { btnCreate, btnBox, titlePage } from './MainView.module.css';
+import { btnCreate, btnBox, titlePage, cartIcon, btnCart, quantity } from './MainView.module.css';
 
 const MainPage = () => {
-  const { page, setPage, products, setProducts } = useContext(Context);
+  const { page, setPage, products, setProducts, cart } = useContext(Context);
 
   const handleClickNext = () => {
     setPage(page + 1);
@@ -27,22 +27,18 @@ const MainPage = () => {
     <section>
       <h1 className={titlePage}>Main Page </h1>
       <Filter />
+      <NavLink to='/cart' className={btnCart}>
+        <p className={quantity}>{cart.length}</p>
+        <div className={cartIcon}></div>
+      </NavLink>
       <NavLink to='/create' className={btnCreate}>
         <Button label={'Create'} />
       </NavLink>
       <CardList />
       <div className={btnBox}>
-        <Button
-          label={'< Previous'}
-          handleClick={handleClickPrev}
-          isActive={page === 1 ? true : false}
-        />
+        <Button label={'< Previous'} handleClick={handleClickPrev} isActive={page === 1 ? true : false} />
         <p>Page {page}</p>
-        <Button
-          label={'Next >'}
-          handleClick={handleClickNext}
-          isActive={!products.length ? true : false}
-        />
+        <Button label={'Next >'} handleClick={handleClickNext} isActive={!products.length ? true : false} />
       </div>
     </section>
   );

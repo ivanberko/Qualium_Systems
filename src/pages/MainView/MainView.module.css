@@ -12,3 +12,25 @@
   text-align: center;
   margin-bottom: 20px;
 }
+
+.btnCart {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  text-decoration: none;
+}
+
+.quantity {
+  color: rgb(197, 0, 0);
+  align-self: flex-end;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.cartIcon {
+  width: 30px;
+  height: 30px;
+  background-image: url(../../assets/icons/shopping-cart-of-checkered-design.svg);
+  background-size: contain;
+}

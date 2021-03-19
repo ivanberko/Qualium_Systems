@@ -8,25 +8,27 @@ import Context from '../../context';
 import Button from '../Button';
 
 // Services
-import { updateProducts, deleteProduct } from '../../services/apiServices';
+import { updateProducts, deleteProduct, requestAddToCart } from '../../services/apiServices';
 
 // Styles
 import { cardBox, cardTitle, cardDesc, cardPrice, btnBox } from './Card.module.css';
 
 const Card = ({ product }) => {
-  const { products, setProducts } = useContext(Context);
+  const { products, setProducts, cart, setCart } = useContext(Context);
   const { title, description, price, inCart, id } = product;
 
-  const handleClickUpdateProds = () => {
+  const handleClickAddToCart = () => {
     updateProducts(id, { inCart: true }).then(() =>
       setProducts(products.map(product => (product.id === id ? { ...product, inCart: true } : product)))
     );
+
+    requestAddToCart({ id, title, description, price, quantity: 1 }).then(res => {
+      setCart([...cart, res]);
+    });
   };
 
   const handleClickDeleteProd = () => {
-    deleteProduct(id).then(() =>
-      setProducts(products.filter(product => product.id !== id))
-    );
+    deleteProduct(id).then(() => setProducts(products.filter(product => product.id !== id)));
   };
 
   return (
@@ -44,8 +46,8 @@ const Card = ({ product }) => {
         <NavLink to='/edit'>
           <Button label='Edit' />
         </NavLink>
-        <Button label='Delete' handleClick={handleClickDeleteProd}/>
-        <Button label='Add to cart' handleClick={handleClickUpdateProds} isActive={inCart} />
+        <Button label='Delete' handleClick={handleClickDeleteProd} />
+        <Button label='Add to cart' handleClick={handleClickAddToCart} isActive={inCart} />
       </div>
     </li>
   );

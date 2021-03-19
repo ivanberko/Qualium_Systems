@@ -8,9 +8,29 @@ export const fetchProducts = async page => {
   return res;
 };
 
+export const fetchCart = async () => {
+  const res = await fetch(`${baseUrl}/cart`)
+    .then(response => response.json())
+    .then(data => data);
+
+  return res;
+};
+
 export const updateProducts = async (id, data) => {
   const res = await fetch(`${baseUrl}/products/${id}`, {
     method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  }).then(response => response.json());
+
+  return res;
+};
+
+export const requestAddToCart = async data => {
+  const res = await fetch(`${baseUrl}/cart`, {
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
