@@ -1,0 +1,22 @@
+.cardBox {
+  width: 300px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 20px;
+}
+
+.cardBox span {
+  font-weight: 700;
+}
+
+.cardTitle,
+.cardDesc,
+.cardPrice {
+  margin-bottom: 10px;
+}
+
+.btnBox {
+  display: flex;
+  justify-content: space-around;
+}
