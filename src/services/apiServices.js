@@ -1,7 +1,7 @@
 const baseUrl = 'http://localhost:3000';
 
-export const fetchProducts = async () => {
-  const res = await fetch(`${baseUrl}/products`)
+export const fetchProducts = async page => {
+  const res = await fetch(`${baseUrl}/products?_page=${page}&_limit=10`)
     .then(response => response.json())
     .then(data => data);
 

@@ -14,18 +14,19 @@ import CreateCardPage from '../../pages/CreateView';
 import { fetchProducts } from '../../services/apiServices';
 
 // Utils
-import { findProduct } from '../../utils'
+import { findProduct } from '../../utils';
 
 // Styles
 import './App.module.css';
 
 const App = () => {
   const [products, setProducts] = useState([]);
+  const [page, setPage] = useState(1);
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
-    fetchProducts().then(data => setProducts(data));
-  }, []);
+    fetchProducts(page).then(data => setProducts(data));
+  }, [page]);
 
   const filteredProducts = findProduct(filter, products);
 
@@ -36,7 +37,9 @@ const App = () => {
         setProducts,
         filteredProducts,
         filter,
-        setFilter
+        setFilter,
+        page,
+        setPage
       }}
     >
       <main className='app'>
