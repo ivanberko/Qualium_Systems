@@ -41,7 +41,7 @@ const MainPage = () => {
         <Button
           label={'Next >'}
           handleClick={handleClickNext}
-          isActive={products.length !== 10 ? true : false}
+          isActive={!products.length ? true : false}
         />
       </div>
     </section>

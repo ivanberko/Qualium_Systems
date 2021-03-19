@@ -15,8 +15,15 @@ export const updateProducts = async (id, data) => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
-  })
-    .then(response => response.json());
+  }).then(response => response.json());
+
+  return res;
+};
+
+export const deleteProduct = async id => {
+  const res = await fetch(`${baseUrl}/products/${id}`, {
+    method: 'DELETE'
+  }).then(response => response.json());
 
   return res;
 };
