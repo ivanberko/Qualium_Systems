@@ -9,7 +9,7 @@ const Card = ({ product }) => {
   const { products, setProducts } = useContext(Context);
   const { title, description, price, inCart, id } = product;
 
-  const handleClick = e => {
+  const handleClick = () => {
     updateProducts(id, { inCart: true }).then(() =>
       setProducts(products.map(product => (product.id === id ? { ...product, inCart: true } : product)))
     );

@@ -4,11 +4,11 @@ import Card from '../Card';
 import {listCard} from './ListCard.module.css'
 
 const CardList = () => {
-  const { products }  = useContext(Context);
+  const { filteredProducts }  = useContext(Context);
 
   return (
     <ul className={listCard}>
-      {products.map(product => (
+      {filteredProducts.map(product => (
         <Card product={product} key={product.id}/>
       ))}
     </ul>
