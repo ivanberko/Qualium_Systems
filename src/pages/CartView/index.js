@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 // Context
 import Context from '../../context';
@@ -8,21 +8,29 @@ import Context from '../../context';
 import Cart from '../../components/Cart';
 
 // Styles
-import { titlePage, cartIcon, btnCart, quantity, priceTotal } from './CartView.module.css';
+import { titlePage, cartIcon, btnCart, quantity, priceTotal, btnGoBack, goBackBox } from './CartView.module.css';
 
 const CartPage = () => {
+  const history = useHistory();
   const { cart } = useContext(Context);
-  const totalPrice = cart.reduce((acc, { price, quantity }) => (acc += (price * quantity)), 0);
+  const totalPrice = cart.reduce((acc, { price, quantity }) => (acc += price * quantity), 0);
 
   return (
     <section>
       <h1 className={titlePage}>Cart Page</h1>
-      <NavLink to='/cart' className={btnCart}>
+      <div className={goBackBox}>
+        <button type='button' className={btnGoBack} onClick={history.goBack}>
+          Go back
+        </button>
+      </div>
+      <div className={btnCart}>
         <p className={quantity}>{cart.length}</p>
         <div className={cartIcon}></div>
-      </NavLink>
+      </div>
       <Cart />
-      <div className={priceTotal}><span>Total prise:</span> {totalPrice}</div>
+      <div className={priceTotal}>
+        <span>Total prise:</span> {totalPrice}
+      </div>
     </section>
   );
 };
