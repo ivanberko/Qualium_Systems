@@ -1,6 +1,12 @@
 import { useContext } from 'react';
+
+// Context
 import Context from '../../context';
+
+// Components
 import Card from '../Card';
+
+// Styles
 import { listCard, listSubtitle } from './ListCard.module.css';
 
 const CardList = () => {

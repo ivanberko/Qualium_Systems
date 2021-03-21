@@ -28,6 +28,18 @@ export const updateProducts = async (id, data) => {
   return res;
 };
 
+export const updateCart = async (id, data) => {
+  const res = await fetch(`${baseUrl}/cart/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  }).then(response => response.json());
+
+  return res;
+};
+
 export const requestAddToCart = async data => {
   const res = await fetch(`${baseUrl}/cart`, {
     method: 'POST',
@@ -42,6 +54,14 @@ export const requestAddToCart = async data => {
 
 export const deleteProduct = async id => {
   const res = await fetch(`${baseUrl}/products/${id}`, {
+    method: 'DELETE'
+  }).then(response => response.json());
+
+  return res;
+};
+
+export const deleteProductFromCart = async id => {
+  const res = await fetch(`${baseUrl}/cart/${id}`, {
     method: 'DELETE'
   }).then(response => response.json());
 

@@ -1,0 +1,52 @@
+.cartBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  box-shadow: 0px 0px 8px 0px #23232350;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.cartBox span {
+  font-weight: 700;
+}
+
+.cartTitle,
+.cartDesc,
+.cartPrice {
+  margin-bottom: 5px;
+}
+
+.btnBox {
+  display: flex;
+  justify-content: space-around;
+}
+
+.listSubtitle {
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.quantityBox {
+  display: flex;
+  align-items: center;
+}
+
+.total {
+  padding: 0 20px;
+}
+
+.decrement,
+.increment {
+  font-size: 14px;
+  text-align: center;
+  padding: 4px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  cursor: pointer;
+}
