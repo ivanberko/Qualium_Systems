@@ -1,7 +1,16 @@
+// Components
+import FormCard from '../../components/FormCard';
+
+// Styles
+import { titlePage } from './CreateView.module.css';
+
 const CreateCardPage = () => {
   return (
-    <h1>Create Card Page</h1>
-  )
-}
+    <section>
+      <h1 className={titlePage}>Create Card Page</h1>
+      <FormCard />
+    </section>
+  );
+};
 
 export default CreateCardPage;

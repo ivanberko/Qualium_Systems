@@ -40,6 +40,18 @@ export const updateCart = async (id, data) => {
   return res;
 };
 
+export const requestAddToProducts = async data => {
+  const res = await fetch(`${baseUrl}/products`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  }).then(response => response.json());
+
+  return res;
+};
+
 export const requestAddToCart = async data => {
   const res = await fetch(`${baseUrl}/cart`, {
     method: 'POST',
