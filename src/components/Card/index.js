@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // Context
 import Context from '../../context';
@@ -33,19 +33,26 @@ const Card = ({ product }) => {
 
   return (
     <li className={cardBox}>
-      <p className={cardTitle}>
-        <span>Title:</span> {title}
-      </p>
-      <p className={cardDesc}>
-        <span>Description:</span> {description}
-      </p>
-      <p className={cardPrice}>
-        <span>Price:</span> {price}
-      </p>
+      <div>
+        <p className={cardTitle}>
+          <span>Title:</span> {title}
+        </p>
+        <p className={cardDesc}>
+          <span>Description:</span> {description}
+        </p>
+        <p className={cardPrice}>
+          <span>Price:</span> {price}
+        </p>
+      </div>
       <div className={btnBox}>
-        <NavLink to='/edit'>
+        <Link
+          to={{
+            pathname: '/edit',
+            state: { title, description, price, id }
+          }}
+        >
           <Button label='Edit' />
-        </NavLink>
+        </Link>
         <Button label='Delete' handleClick={handleClickDeleteProd} />
         <Button label='Add to cart' handleClick={handleClickAddToCart} isActive={inCart} />
       </div>

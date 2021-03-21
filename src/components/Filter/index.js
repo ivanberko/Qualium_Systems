@@ -1,5 +1,9 @@
 import { useContext } from 'react';
+
+// Context
 import Context from '../../context';
+
+// Styles
 import { sectionFilter, inputFilter } from "./Filter.module.css";
 
 const Filter = () => {
@@ -13,7 +17,7 @@ const Filter = () => {
           type="text"
           name="filter"
           value={filter}
-          onChange={({ target: { value } }) => setFilter(value)}
+          onChange={({ target }) => setFilter(target.value)}
           className={inputFilter}
         />
       </label>

@@ -1,3 +1,4 @@
+// Styles
 import { button } from './Button.module.css';
 
 const Button = ({label, handleClick, isActive}) => {

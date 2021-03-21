@@ -1,10 +1,15 @@
-import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
+
+// Context
 import Context from '../../context';
+
+// Components
 import CardList from '../../components/ListCards';
 import Filter from '../../components/Filter';
 import Button from '../../components/Button';
 
+// Services
 import { fetchProducts } from '../../services/apiServices';
 
 // Styles
