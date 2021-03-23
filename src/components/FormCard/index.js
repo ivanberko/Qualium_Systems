@@ -11,25 +11,35 @@ import Button from '../Button';
 import { requestAddToProducts, updateProducts } from '../../services/apiServices';
 
 // Styles
-import { formCreate, inputForm } from './FormCard.module.css';
+import { formCreate, inputForm, labelInput } from './FormCard.module.css';
 
 const initStateForm = {
   id: '',
   title: '',
   description: '',
   price: '',
-  inCart: false
+  inCart: false,
+  labelUrl: ''
 };
 
 const FormCard = ({ history, location: { state } }) => {
   const { products, setProducts } = useContext(Context);
   const [formData, setFormData] = useState(initStateForm);
+  const [isActiveForm, setIsActiveForm] = useState(false);
 
   useEffect(() => {
     if (state) {
       setFormData({ ...formData, ...state });
     }
   }, []);
+
+  useEffect(() => {
+    if (formData.title && formData.description && formData.price) {
+      return setIsActiveForm(true);
+    }
+
+    setIsActiveForm(false)
+  }, [formData]);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -47,38 +57,54 @@ const FormCard = ({ history, location: { state } }) => {
   };
 
   return (
-    <form className={formCreate}>
-      <label>
+    <form className={formCreate} onSubmit={handleSubmit}>
+      <label className={labelInput}>
         Title
         <input
           type='text'
           name='title'
+          placeholder='Text'
           value={formData.title}
           className={inputForm}
           onChange={({ target }) => setFormData({ ...formData, title: target.value })}
         />
       </label>
-      <label>
+      <label className={labelInput}>
         Price
         <input
-          type='number'
+          type='text'
           name='price'
+          placeholder='Number'
+          pattern='\d*[\.+]?\d{1,2}'
           value={formData.price}
           className={inputForm}
-          onChange={({ target }) => setFormData({ ...formData, price: +target.value })}
+          onChange={({ target }) => setFormData({ ...formData, price: target.value })}
         />
       </label>
-      <label>
+      <label className={labelInput}>
         Description
         <textarea
           type='text'
           name='description'
+          placeholder='Text'
           value={formData.description}
           className={inputForm}
           onChange={({ target }) => setFormData({ ...formData, description: target.value })}
         />
       </label>
-      <Button label={'Save'} handleClick={handleSubmit} />
+      <label className={labelInput}>
+        Emblem (url)<span>*optional</span>
+        <input
+          type='url'
+          name='emblem'
+          placeholder='https://example.com'
+          pattern='https?://.+'
+          value={formData.labelUrl}
+          className={inputForm}
+          onChange={({ target }) => setFormData({ ...formData, labelUrl: target.value })}
+        />
+      </label>
+      <Button label={'Save'} isActive={!isActiveForm} />
     </form>
   );
 };

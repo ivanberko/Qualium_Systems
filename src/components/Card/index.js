@@ -11,11 +11,11 @@ import Button from '../Button';
 import { updateProducts, deleteProduct, requestAddToCart } from '../../services/apiServices';
 
 // Styles
-import { cardBox, cardTitle, cardDesc, cardPrice, btnBox } from './Card.module.css';
+import { cardBox, cardTitle, cardDesc, cardPrice, btnBox, imgBox } from './Card.module.css';
 
 const Card = ({ product }) => {
   const { products, setProducts, cart, setCart } = useContext(Context);
-  const { title, description, price, inCart, id } = product;
+  const { title, description, price, inCart, labelUrl, id } = product;
 
   const handleClickAddToCart = () => {
     updateProducts(id, { inCart: true }).then(() =>
@@ -37,6 +37,11 @@ const Card = ({ product }) => {
         <p className={cardTitle}>
           <span>Title:</span> {title}
         </p>
+        {labelUrl && (
+          <div className={imgBox}>
+            <img src={labelUrl} alt='logo' />
+          </div>
+        )}
         <p className={cardDesc}>
           <span>Description:</span> {description}
         </p>
@@ -48,7 +53,7 @@ const Card = ({ product }) => {
         <Link
           to={{
             pathname: '/edit',
-            state: { title, description, price, id }
+            state: { title, description, price, labelUrl, id }
           }}
         >
           <Button label='Edit' />

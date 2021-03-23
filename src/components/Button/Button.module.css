@@ -10,10 +10,15 @@
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
+  transition: .3s linear;
 }
 
 .button:disabled {
   background-color: #051d097e;
   color: #ffffff;
   cursor: not-allowed;
+}
+
+.button:hover {
+  background-color: #00ff88;
 }

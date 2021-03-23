@@ -1,4 +1,5 @@
 .cardBox {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -22,4 +23,11 @@
 .btnBox {
   display: flex;
   justify-content: space-around;
+}
+
+.imgBox {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
 }

@@ -5,119 +5,152 @@
       "title": "Audi",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
       "price": 100,
-      "inCart": true
+      "inCart": true,
+      "labelUrl": "https://автолого.рф/wp-content/uploads/audi-logo-145x100.png"
     },
     {
       "id": "ixp8fd8u67h",
       "title": "BMW",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
       "price": 150,
-      "inCart": false
+      "inCart": false,
+      "labelUrl": "https://автолого.рф/wp-content/uploads/bmw-logo-1-145x100.png"
     },
     {
       "id": "ox98i1f5idg",
       "title": "Citroen",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
       "price": 200,
-      "inCart": false
+      "inCart": false,
+      "labelUrl": "https://автолого.рф/wp-content/uploads/citroen-logo-145x100.png"
     },
     {
       "id": "adv62bxeq9i",
       "title": "Lexus",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
       "price": 250,
-      "inCart": false
+      "inCart": false,
+      "labelUrl": "https://автолого.рф/wp-content/uploads/lexus-logo-145x100.png"
     },
     {
       "id": "yp5hqdyqh9b",
       "title": "Mazda",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
       "price": 300,
-      "inCart": false
+      "inCart": false,
+      "labelUrl": "https://автолого.рф/wp-content/uploads/mazda-logo-145x100.png"
     },
     {
       "id": "e79ep31aiwk",
       "title": "Mitsubishi",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
       "price": 350,
-      "inCart": false
+      "inCart": false,
+      "labelUrl": "https://автолого.рф/wp-content/uploads/mitsubishi-logo-145x100.png"
     },
     {
       "id": "vbrrcrvb9lg",
       "title": "Opel",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
       "price": 400,
-      "inCart": false
+      "inCart": false,
+      "labelUrl": "https://автолого.рф/wp-content/uploads/opel-logo-145x100.png"
     },
     {
       "id": "jop3ymxur9",
       "title": "Peugeot",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
       "price": 450,
-      "inCart": false
+      "inCart": false,
+      "labelUrl": "https://автолого.рф/wp-content/uploads/peugeot-logo-2021-145x100.png"
     },
     {
       "id": "b5vcuhjp8r9",
       "title": "Renault",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
       "price": 500,
-      "inCart": false
+      "inCart": false,
+      "labelUrl": "https://автолого.рф/wp-content/uploads/renault-logo-145x100.png"
     },
     {
       "id": "z60tmp10ba",
       "title": "SEAT",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
       "price": 550,
-      "inCart": false
+      "inCart": false,
+      "labelUrl": "https://автолого.рф/wp-content/uploads/seat-logo-145x100.png"
     },
     {
       "id": "jko2vslbj4",
       "title": "Scoda",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
       "price": 600,
-      "inCart": false
+      "inCart": false,
+      "labelUrl": "https://автолого.рф/wp-content/uploads/skoda-logo-145x100.png"
     },
     {
       "id": "hxgyij8ixgj",
       "title": "Suzuki",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
       "price": 650,
-      "inCart": false
+      "inCart": false,
+      "labelUrl": "https://автолого.рф/wp-content/uploads/suzuki-logo-145x100.png"
     },
     {
       "id": "tdr6kubr2xd",
       "title": "Tesla",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
       "price": 700,
-      "inCart": false
+      "inCart": false,
+      "labelUrl": "https://автолого.рф/wp-content/uploads/tesla-logo-145x100.png"
     },
     {
       "id": "ct4w8vhab5p",
       "title": "Toyota",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
       "price": 750,
-      "inCart": false
+      "inCart": false,
+      "labelUrl": "https://автолого.рф/wp-content/uploads/toyota-logo-145x100.png"
     },
     {
       "id": "vkllhfm09zm",
       "title": "Ford",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
       "price": 800,
-      "inCart": false
+      "inCart": false,
+      "labelUrl": "https://автолого.рф/wp-content/uploads/ford-logo-145x100.png"
     },
     {
       "id": "m7281hc8os",
       "title": "Honda",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
       "price": 850,
-      "inCart": false
+      "inCart": false,
+      "labelUrl": "https://автолого.рф/wp-content/uploads/honda-logo-145x100.png"
     },
     {
       "id": "ixp8ux8u33h",
       "title": "Hyundai",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
       "price": 900,
-      "inCart": false
+      "inCart": false,
+      "labelUrl": "https://автолого.рф/wp-content/uploads/hyundai-logo-145x100.png"
+    },
+    {
+      "id": 21409899,
+      "title": "Bentley",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
+      "price": "2000",
+      "inCart": false,
+      "labelUrl": "https://автолого.рф/wp-content/uploads/bentley-logo-145x100.png"
+    },
+    {
+      "id": 98474595,
+      "title": "Mercedes-Benz",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, qui?",
+      "price": "900",
+      "inCart": false,
+      "labelUrl": "https://автолого.рф/wp-content/uploads/mercedes-benz-logo-145x100.png"
     }
   ],
   "cart": [
