@@ -8,7 +8,7 @@ import Context from '../../context';
 import Button from '../Button';
 
 // Services
-import { requestAddToProducts, updateProducts } from '../../services/apiServices';
+import { requestAddToProducts, updateProducts, updateCart } from '../../services/apiServices';
 
 // Styles
 import { formCreate, inputForm, labelInput } from './FormCard.module.css';
@@ -18,12 +18,11 @@ const initStateForm = {
   title: '',
   description: '',
   price: '',
-  inCart: false,
   labelUrl: ''
 };
 
 const FormCard = ({ history, location: { state } }) => {
-  const { products, setProducts } = useContext(Context);
+  const { products, setProducts, cart, setCart } = useContext(Context);
   const [formData, setFormData] = useState(initStateForm);
   const [isActiveForm, setIsActiveForm] = useState(false);
 
@@ -38,20 +37,25 @@ const FormCard = ({ history, location: { state } }) => {
       return setIsActiveForm(true);
     }
 
-    setIsActiveForm(false)
+    setIsActiveForm(false);
   }, [formData]);
 
   const handleSubmit = e => {
     e.preventDefault();
 
     if (state) {
-      return updateProducts(state.id, { ...formData }).then(() => {
+      updateProducts(state.id, { ...formData }).then(() => {
         setProducts(products.map(product => (product.id === state.id ? { ...product, ...formData } : product)));
-        history.push('/');
       });
+
+      updateCart(state.id, { ...formData }).then(() => {
+        setCart(cart.map(product => (product.id === state.id ? { ...product, ...formData } : product)));
+      });
+
+      return history.push('/');
     }
 
-    requestAddToProducts({ ...formData, id: Math.floor(Math.random() * 100000000) }).then(() => {
+    requestAddToProducts({ ...formData, id: Math.floor(Math.random() * 100000000), inCart: false }).then(() => {
       history.push('/');
     });
   };

@@ -10,11 +10,11 @@ import Card from '../Card';
 import { listCard, listSubtitle } from './ListCard.module.css';
 
 const CardList = () => {
-  const { filteredProducts } = useContext(Context);
+  const { products } = useContext(Context);
 
-  return filteredProducts.length ? (
+  return products.length ? (
     <ul className={listCard}>
-      {filteredProducts.map(product => (
+      {products.map(product => (
         <Card product={product} key={product.id} />
       ))}
     </ul>

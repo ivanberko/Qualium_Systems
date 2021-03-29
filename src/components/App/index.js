@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 // Context
@@ -10,12 +10,6 @@ import CartPage from '../../pages/CartView';
 import EditCardPage from '../../pages/EditView';
 import CreateCardPage from '../../pages/CreateView';
 
-// Services
-import { fetchProducts, fetchCart } from '../../services/apiServices';
-
-// Utils
-import { findProduct } from '../../utils';
-
 // Styles
 import './App.module.css';
 
@@ -23,17 +17,6 @@ const App = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [page, setPage] = useState(1);
-  const [filter, setFilter] = useState('');
-
-  useEffect(() => {
-    fetchProducts(page).then(data => setProducts(data));
-  }, [page]);
-
-  useEffect(() => {
-    fetchCart().then(data => setCart(data));
-  }, []);
-
-  const filteredProducts = findProduct(filter, products);
 
   return (
     <Context.Provider
@@ -42,9 +25,6 @@ const App = () => {
         setProducts,
         cart,
         setCart,
-        filteredProducts,
-        filter,
-        setFilter,
         page,
         setPage
       }}

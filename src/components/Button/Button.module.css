@@ -19,6 +19,10 @@
   cursor: not-allowed;
 }
 
+.button:disabled:hover {
+  background-color: #051d097e;
+}
+
 .button:hover {
   background-color: #00ff88;
 }

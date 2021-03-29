@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 // Context
@@ -10,22 +10,27 @@ import Filter from '../../components/Filter';
 import Button from '../../components/Button';
 
 // Services
-import { fetchProducts } from '../../services/apiServices';
+import { fetchProducts, fetchCart } from '../../services/apiServices';
 
 // Styles
 import { btnCreate, btnBox, titlePage, cartIcon, btnCart, quantity } from './MainView.module.css';
 
 const MainPage = () => {
-  const { page, setPage, products, setProducts, cart } = useContext(Context);
+  const { page, setPage, products, setProducts, cart, setCart } = useContext(Context);
+
+  useEffect(() => {
+    fetchProducts(page).then(data => setProducts(data));
+    fetchCart().then(data => setCart(data));
+  }, []);
 
   const handleClickNext = () => {
     setPage(page + 1);
-    fetchProducts(page).then(data => setProducts(data));
+    fetchProducts(page + 1).then(data => setProducts(data));
   };
 
   const handleClickPrev = () => {
     setPage(page - 1);
-    fetchProducts(page).then(data => setProducts(data));
+    fetchProducts(page - 1).then(data => setProducts(data));
   };
 
   return (
@@ -43,7 +48,7 @@ const MainPage = () => {
       <div className={btnBox}>
         <Button label={'< Previous'} handleClick={handleClickPrev} isActive={page === 1 ? true : false} />
         <p>Page {page}</p>
-        <Button label={'Next >'} handleClick={handleClickNext} isActive={!products.length ? true : false} />
+        <Button label={'Next >'} handleClick={handleClickNext} isActive={products.length < 10 ? true : false} />
       </div>
     </section>
   );

@@ -8,13 +8,13 @@ import Context from '../../context';
 import Button from '../Button';
 
 // Services
-import { updateProducts, deleteProduct, requestAddToCart } from '../../services/apiServices';
+import { updateProducts, deleteProduct, requestAddToCart, deleteProductFromCart, fetchProducts } from '../../services/apiServices';
 
 // Styles
 import { cardBox, cardTitle, cardDesc, cardPrice, btnBox, imgBox } from './Card.module.css';
 
 const Card = ({ product }) => {
-  const { products, setProducts, cart, setCart } = useContext(Context);
+  const { products, setProducts, cart, setCart, page } = useContext(Context);
   const { title, description, price, inCart, labelUrl, id } = product;
 
   const handleClickAddToCart = () => {
@@ -29,6 +29,13 @@ const Card = ({ product }) => {
 
   const handleClickDeleteProd = () => {
     deleteProduct(id).then(() => setProducts(products.filter(product => product.id !== id)));
+    const isCart = cart.some(product => product.id === id);
+
+    if (isCart) {
+      deleteProductFromCart(id).then(() => setCart(cart.filter(product => product.id !== id)));
+    }
+
+    fetchProducts(page).then(data => setProducts(data));
   };
 
   return (
@@ -53,7 +60,7 @@ const Card = ({ product }) => {
         <Link
           to={{
             pathname: '/edit',
-            state: { title, description, price, labelUrl, id }
+            state: { title, description, price, labelUrl, id, inCart }
           }}
         >
           <Button label='Edit' />

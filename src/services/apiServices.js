@@ -8,6 +8,14 @@ export const fetchProducts = async page => {
   return res;
 };
 
+export const filterProductsByTitle = async title => {
+  const res = await fetch(`${baseUrl}/products?q=${title}&_limit=10`)
+    .then(response => response.json())
+    .then(data => data);
+
+  return res;
+};
+
 export const fetchCart = async () => {
   const res = await fetch(`${baseUrl}/cart`)
     .then(response => response.json())

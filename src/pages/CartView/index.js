@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 // Context
@@ -7,12 +7,20 @@ import Context from '../../context';
 // Components
 import Cart from '../../components/Cart';
 
+// Services
+import { fetchCart } from '../../services/apiServices';
+
 // Styles
 import { titlePage, cartIcon, btnCart, quantity, priceTotal, btnGoBack, goBackBox } from './CartView.module.css';
 
 const CartPage = () => {
   const history = useHistory();
-  const { cart } = useContext(Context);
+  const { cart, setCart } = useContext(Context);
+
+  useEffect(() => {
+    fetchCart().then(data => setCart(data));
+  }, []);
+
   const totalPrice = cart.reduce((acc, { price, quantity }) => (acc += price * quantity), 0);
 
   return (

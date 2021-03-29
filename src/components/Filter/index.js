@@ -1,13 +1,24 @@
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 
 // Context
 import Context from '../../context';
+
+// Services
+import { filterProductsByTitle } from '../../services/apiServices';
 
 // Styles
 import { sectionFilter, inputFilter } from "./Filter.module.css";
 
 const Filter = () => {
-  const { filter, setFilter } = useContext(Context);
+  const [inputValue, setInputValue] = useState('')
+  const { setPage, setProducts } = useContext(Context);
+
+  const handleChange = ({ target: {value} })  => {
+    setInputValue(value);
+    filterProductsByTitle(value).then(data => {
+      setPage(1)
+      setProducts(data)});
+  };
 
   return (
     <section className={sectionFilter}>
@@ -16,8 +27,8 @@ const Filter = () => {
         <input
           type="text"
           name="filter"
-          value={filter}
-          onChange={({ target }) => setFilter(target.value)}
+          value={inputValue}
+          onChange={handleChange}
           className={inputFilter}
         />
       </label>
